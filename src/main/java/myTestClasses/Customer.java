@@ -2,7 +2,6 @@ package myTestClasses;
 
 import rx.Observable;
 import rx.Subscriber;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +11,6 @@ import java.util.Set;
 public class Customer {
 
     private String name;
-
     private int age;
 
     private Set<Subscriber<? super Integer>> subscribers;
@@ -21,8 +19,8 @@ public class Customer {
     public Customer(String name, int age) {
         this.name = name;
         this.age = age;
-        subscribers = new HashSet<>();
-        observable = Observable.create(s -> subscribers.add(s));
+//        subscribers = new HashSet<>();
+//        observable = Observable.create(s -> subscribers.add(s));
     }
 
     public String getName() {
@@ -39,7 +37,7 @@ public class Customer {
 
     public void setAge(int age) {
         this.age = age;
-        subscribers.forEach(s -> s.onNext(age));
+//        subscribers.forEach(s -> s.onNext(age));
     }
 
     public Observable<Integer> getObservable() {
